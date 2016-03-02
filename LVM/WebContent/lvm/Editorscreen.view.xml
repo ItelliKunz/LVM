@@ -12,7 +12,9 @@
 	controllerName="lvm.Editorscreen">
 
 	<Page title="Editorscreen">
+	<Button text="Zurück" type="Back"/>
 		<content>
+
 			<f:SimpleForm id="SimpleFormChange354"
 			minWidth="1024"
 			maxContainerCols="2"
@@ -55,8 +57,22 @@
 				<!--  <Input value="{Planungsnnotiz}" />-->
 				<Label text="Anmeldeverfahren" />
 
-			
-																				
+				<CheckBox text="Online" />
+				<CheckBox text="Option 2" selected="true">
+					<layoutData>
+						<l:GridData linebreak="true"
+							indentL="4"
+							indentM="4" />
+					</layoutData>
+				</CheckBox>
+				<CheckBox id="focusMe" text="Option 3">
+					<layoutData>
+						<l:GridData linebreak="true"
+							indentL="4"
+							indentM="4" />
+					</layoutData>
+				</CheckBox>
+															
 				<Select width="100%">
 					<items>
 						<c:Item text="Standard" />
@@ -72,24 +88,25 @@
 			
 				<t:Table
 				rows="{/ProductCollection}"
-				title="Products"
+				title="Events"
 				selectionMode="MultiToggle"
-				visibleRowCount="7">
+				visibleRowCount="7"
+				visible="Disabled">
 				<t:columns>
 					<t:Column width="11rem">
-						<Label text="Product Name" />
+						<Label text="Name" />
 						<t:template>
 							<Text text="{Name}"/>
 						</t:template>
 					</t:Column>
 					<t:Column width="11rem">
-						<Label text="Product Id" />
+						<Label text="Ort" />
 						<t:template>
 							<Input value="{ProductId}"/>
 						</t:template>
 					</t:Column>
 					<t:Column width="6rem" hAlign="End">
-						<Label text="Quantity" />
+						<Label text="Zeit" />
 						<t:template>
 							<Label text="{Quantity}" />
 						</t:template>
@@ -99,16 +116,18 @@
 
 					</t:Column>
 					<t:Column width="9rem">
-						<Label text="Price" />
+						<Label text="Dauer" />
 						<t:template>
-							<u:Currency value="{Price}" currency="{CurrencyCode}"/>
+							
 						</t:template>
 					</t:Column>
 					<t:Column width="12rem">
 						<Label text="Supplier" />
 						<t:template>
 							<ComboBox value="{SupplierName}" items="{/Suppliers}">
-								<c:Item text="{Name}"/>
+								<c:Item text="{Name}">
+									
+								</c:Item>
 							</ComboBox>
 						</t:template>
 					</t:Column>
@@ -161,7 +180,7 @@
 
 		<Toolbar>
 				<ToolbarSpacer/>
-				<Button text="Speichern" type="Accept" presss="handleSaveData"/>
+				<Button text="Speichern" type="Accept" press="handleSaveData"/>
 				<Button text="Verwerfen" type="Reject" press="handleClearFields" />
 			</Toolbar>
 

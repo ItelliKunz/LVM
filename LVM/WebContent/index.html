@@ -7,7 +7,8 @@
 		<script src="resources/sap-ui-core.js"
 				id="sap-ui-bootstrap"
 				data-sap-ui-libs="sap.m"
-				data-sap-ui-theme="sap_bluecrystal">
+				data-sap-ui-theme="sap_bluecrystal"
+				data-sap-ui-xx-bindingSyntax="complex">
 		</script>
 		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
 
@@ -17,9 +18,9 @@
 				var page = sap.ui.view({id:"idLVM_MainView1", viewName:"lvm.LVM_MainView", type:sap.ui.core.mvc.ViewType.XML});
 				app.addPage(page);
 				app.placeAt("content");*/
-				sap.ui.localResources("editor screen"); 
+				/*sap.ui.localResources("editor screen");   */
 				var app = new sap.m.App({initialPage:"idEditorscreen1"});
-				var page = sap.ui.view({id:"idEditorscreen1", viewName:"lvm.Editorscreen", type:sap.ui.core.mvc.ViewType.XML});
+				var page = sap.ui.view({id:"idEditorscreen1", viewName:"lvm.FirstView", type:sap.ui.core.mvc.ViewType.XML});
 				app.addPage(page);
 				app.placeAt("content"); 
 				

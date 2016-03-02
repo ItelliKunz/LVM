@@ -1,0 +1,201 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:com="sap.ui.commons" controllerName="lvm.FirstView"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.commons.layout" xmlns:ul="sap.ui.layout">
+
+	<Page backgroundDesign="Transparent" title="Veranstaltungsbrowser">
+
+		<content>
+			<!-- <ul:Splitter orientation="Vertical">
+				<SplitContainer> -->
+					<com:HorizontalDivider></com:HorizontalDivider>
+
+					<l:VerticalLayout width="20%">
+						<!-- <com:layoutData><ul:SplitterLayoutData size="10%" /></com:layoutData> -->
+
+					</l:VerticalLayout>
+
+
+					<l:VerticalLayout width="60%">
+						<!-- <com:layoutData><ul:SplitterLayoutData size="auto" /></com:layoutData> -->
+						<Panel>
+							<l:HorizontalLayout>
+							</l:HorizontalLayout>
+
+							<Input width="70%" description="Akademische Periode"
+								placeholder="Sommersemester..." tooltip="WiSe / SoSe" textAlign="Begin" />
+							<Input width="70%" description="Akad. Jahr" placeholder="Jahr angeben..."
+								tooltip="Akademisches Jahr eingeben (Zahlenwert)" type="Number"
+								textAlign="Begin"></Input>
+						</Panel>
+						<Panel>
+
+							<l:HorizontalLayout>
+								<DatePicker name="Name" id="DP1" placeholder="Datum von: 2016-01-01"
+									valueFormat="yyyy-MM-dd" displayFormat="long" change="handleChange"
+									class="sapUiSmallMarginBottom" />
+								<DatePicker id="DP2" description="Datum bis"
+									placeholder="Datum bis: 2016-07-01" valueFormat="yyyy-MM-dd"
+									displayFormat="long" change="handleChange" class="sapUiSmallMarginBottom" />
+								<Button width="150px" text="Suchen" press="startSearch"></Button>
+							</l:HorizontalLayout>
+						</Panel>
+						<!-- <Panel> <l:HorizontalLayout > </l:HorizontalLayout> </Panel > -->
+					</l:VerticalLayout>
+
+
+					<l:VerticalLayout width="20%">
+					</l:VerticalLayout>
+<!-- 				</SplitContainer>
+
+			</ul:Splitter> -->
+			<com:HorizontalDivider></com:HorizontalDivider>
+			<ScrollContainer>
+				<t:TreeTable editable="False" id="tbl"
+					rows="{path:'/' , parameters:{arrayNames:['data']}}"
+					visibleRowCount="10">
+					<t:columns>
+						<!-- LEVEL 1 -->
+						<t:Column width="20rem">
+							<t:label>
+								<Label text="TOP-SM / D / E" />
+							</t:label>
+							<t:template>
+								<com:TextView text="{name}" />
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<t:label>
+								<Label text="Bezeichnung Object ID" />
+							</t:label>
+							<t:template>
+								<com:TextView text="{objectID}" />
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<t:label>
+								<Label text="Object Typ" />
+							</t:label>
+							<t:template>
+								<com:TextView text="{Object Typ}" />
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<t:label>
+								<Label text="Akad Jahr" />
+							</t:label>
+							<t:template>
+								<com:TextView text="{AkademischesJahr}" />
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<t:label>
+								<Label text="Akad Periode" />
+							</t:label>
+							<t:template>
+								<com:TextView text="{AkademischePeriode}" />
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<t:label>
+								<Label text="Begin Datum" />
+							</t:label>
+							<t:template>
+								<com:TextView text="Begin Datum" />
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<t:label>
+								<Label text="Ende Datum" />
+							</t:label>
+							<t:template>
+								<com:TextView text="Ende Datum" />
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<t:label>
+								<Label text="Kürzel evtl " />
+							</t:label>
+							<t:template>
+								<com:TextView text="{short}" />
+							</t:template>
+						</t:Column>
+
+						<!-- LEVEL 2: SM: plus von oben: ObjectTyp(SM), Object ID, Kürzel (evtl), 
+							Bezeichnung, ParentID -->
+						<t:Column>
+							<t:label>
+								<Label text="Angebotsmuster" />
+							</t:label>
+							<t:template>
+								<com:TextView text="{Angebotsmuster}" />
+							</t:template>
+						</t:Column>
+						<!-- LEVEL 3 >> LEVEL (n-1) = D plus von oben: ObjectTyp(D), Object 
+							ID, Kürzel (evtl), Bezeichnung, ParentID -->
+						<t:Column>
+							<t:label>
+								<Label text="Dummy Spalte für LEVEL 3 bis N" />
+							</t:label>
+							<t:template>
+								<com:TextView text="{abc}" />
+							</t:template>
+						</t:Column>
+						<!-- LEVEL N plus von oben: ObjectTyp(E), Object ID, Kürzel (evtl), 
+							Bezeichnung, ParentID -->
+						<t:Column>
+							<t:label>
+								<Label text="Aufwand in Stunden" />
+							</t:label>
+							<t:template>
+								<com:TextView text="{Aufwand}" />
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<t:label>
+								<Label text="Termine/Raum/Dozent" />
+							</t:label>
+							<t:template>
+								<com:TextView text="{Termine/Raum/Dozent}" />
+							</t:template>
+						</t:Column>
+						<!-- * Termine ("intelligente" Beschreibung der Terminserie) * Räume 
+							(alle Räume, komma-getrennt, wenn zu lang abgekürzt) * Dozenten (alle Dozenten, 
+							komma-getrennt, wenn zu lang abgekürzt) -->
+
+						<t:Column>
+							<t:label>
+								<Label text="Planugnsstatus" />
+							</t:label>
+							<t:template>
+								<com:TextView text="{Planugnsstatus}" />
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<t:label>
+								<Label text="Planugnsnotiz" />
+							</t:label>
+							<t:template>
+								<com:TextArea editable="False" placeholder="Planungsnotiz"
+									value="{Planungsnnotiz}">
+								</com:TextArea>
+								<!-- <com:TextView text="{Planugnsnotiz}" /> -->
+							</t:template>
+						</t:Column>
+
+
+						<t:Column>
+							<t:label>
+								<Label text="Action " />
+							</t:label>
+							<t:template>
+								<Button text="Add child node" press="addNode" />
+							</t:template>
+						</t:Column>
+					</t:columns>
+				</t:TreeTable>
+			</ScrollContainer>
+		</content>
+	</Page>
+</core:View>
