@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:View 
+	xmlns="sap.m" 
+	xmlns:core="sap.ui.core" 
+	xmlns:c="sap.ui.core"	
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:u="sap.ui.unified"
+	xmlns:t="sap.ui.table"
+	xmlns:html="http://www.w3.org/1999/xhtml"	
+	controllerName="editorscreen.Editorscreen">
+
+	<Page title="Editorscreen">
+		<content>
+			<f:SimpleForm id="SimpleFormChange354"
+			minWidth="1024"
+			maxContainerCols="2"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Events Bearbeiten"
+			labelSpanL="3"
+			labelSpanM="3"
+			emptySpanL="4"
+			emptySpanM="4"
+			columnsL="0"
+			columnsM="0"
+			class="editableForm">
+				<Label text="Kürzel " />
+				<Input value="{SupplierName}" />
+				<Label text="Campus / Gebäude" />
+				<Input value="{Street}" />
+
+				<Input value="{HouseNumber}">
+					<layoutData>
+						<l:GridData span="L2 M2 S4" />
+					</layoutData>
+				</Input>
+				<Label text="Kapazität" />
+				<Input value="{ZIPCode}">
+					<layoutData>
+						<l:GridData span="L2 M2 S4" />
+					</layoutData>
+				</Input>
+				<Input value="{City}" />
+				
+				<Label text="Lehrtätigkeitsaufwand" />
+				<Input value="{Lehrtätigkeitsaufwand}" />
+				<Label text="Ablaufbeschreibung" />				
+				<Input value="{Ablaufbeschreibung}" />
+				<Label text="Planugnsstatus" />
+				<Input value="{Planugnsstatus}" />
+				<Label text="Planungsnnotiz" />
+				<TextArea value="{Planungsnnotiz}"> </TextArea>
+				<!--  <Input value="{Planungsnnotiz}" />-->
+				<Label text="Anmeldeverfahren" />
+
+			
+																				
+				<Select width="100%">
+					<items>
+						<c:Item text="Standard" />
+						<c:Item text="Nachrücker" />
+						<c:Item text="Spezial" />
+					</items>
+				</Select>
+				
+				<Label text="Fristen" />
+				<Input value="{Fristen}" />
+				
+			</f:SimpleForm>
+			
+				<t:Table
+				rows="{/ProductCollection}"
+				title="Products"
+				selectionMode="MultiToggle"
+				visibleRowCount="7">
+				<t:columns>
+					<t:Column width="11rem">
+						<Label text="Product Name" />
+						<t:template>
+							<Text text="{Name}"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Product Id" />
+						<t:template>
+							<Input value="{ProductId}"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="6rem" hAlign="End">
+						<Label text="Quantity" />
+						<t:template>
+							<Label text="{Quantity}" />
+						</t:template>
+					</t:Column>
+					<t:Column width="9rem">
+						<Label text="Status" />
+
+					</t:Column>
+					<t:Column width="9rem">
+						<Label text="Price" />
+						<t:template>
+							<u:Currency value="{Price}" currency="{CurrencyCode}"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="12rem">
+						<Label text="Supplier" />
+						<t:template>
+							<ComboBox value="{SupplierName}" items="{/Suppliers}">
+								<c:Item text="{Name}"/>
+							</ComboBox>
+						</t:template>
+					</t:Column>
+					<t:Column width="9rem">
+						<Label text="Itelli" />
+						<t:template>
+							<Link text="Show Itelli" href="www.itelligence.de" target="_blank"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="9rem">
+						<Label text="Details" />
+						<t:template>
+							<Button text="Show Details" />
+						</t:template>
+					</t:Column>
+					<t:Column width="7rem">
+						<Label text="Heavy Weight" />
+						<t:template>
+						<CheckBox selected="{
+								path: 'Heavy',
+								type: 'sap.ui.model.type.String'
+							}"/> 
+						</t:template>
+					</t:Column>
+					<t:Column width="12rem">
+						<Label text="Category" />
+						<t:template>
+							<Select selectedKey="{Category}" items="{/Categories}">
+								<c:Item text="{Name}" key="{Name}"/>
+							</Select>
+						</t:template>
+					</t:Column>
+					<t:Column width="6rem" hAlign="Center">
+						<Label text="Status" />
+						<t:template>
+						<!-- 	<Icon src="{
+								path: 'Available',
+								formatter: 'sap.ui.table.sample.TableExampleUtils.formatAvailableToIcon'
+							}"/> --> 
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem" hAlign="Center">
+						<Label text="Delivery Date" />
+						<t:template>
+
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+
+		<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="Speichern" type="Accept" presss="handleSaveData"/>
+				<Button text="Verwerfen" type="Reject" press="handleClearFields" />
+			</Toolbar>
+
+
+
+		</content>
+	</Page>
+</core:View>
