@@ -9,7 +9,7 @@
 	xmlns:u="sap.ui.unified"
 	xmlns:t="sap.ui.table"
 	xmlns:html="http://www.w3.org/1999/xhtml"	
-	controllerName="editorscreen.Editorscreen">
+	controllerName="lvm.Editorscreen">
 
 	<Page title="Editorscreen">
 		<content>

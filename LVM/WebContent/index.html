@@ -12,16 +12,16 @@
 		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
 
 		<script>
-				sap.ui.localResources("lvm");
-				var app = new sap.m.App({initialPage:"idLVM_MainView1"});
+ 				sap.ui.localResources("lvm");
+/*				var app = new sap.m.App({initialPage:"idLVM_MainView1"});
 				var page = sap.ui.view({id:"idLVM_MainView1", viewName:"lvm.LVM_MainView", type:sap.ui.core.mvc.ViewType.XML});
 				app.addPage(page);
-				app.placeAt("content");
-	/* 			sap.ui.localResources("editorscreen");
-				var app2 = new sap.m.App({initialPage:"idEditorscreen1"});
-				var page2 = sap.ui.view({id:"idEditorscreen1", viewName:"editorscreen.Editorscreen", type:sap.ui.core.mvc.ViewType.XML});
-				app2.addPage(page);
-				app2.placeAt("content"); */
+				app.placeAt("content");*/
+				sap.ui.localResources("editor screen"); 
+				var app = new sap.m.App({initialPage:"idEditorscreen1"});
+				var page = sap.ui.view({id:"idEditorscreen1", viewName:"lvm.Editorscreen", type:sap.ui.core.mvc.ViewType.XML});
+				app.addPage(page);
+				app.placeAt("content"); 
 				
 				
 		</script>
