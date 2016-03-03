@@ -8,7 +8,6 @@
 	<Page backgroundDesign="Transparent" title="Veranstaltungsbrowser">
 		<customHeader>
 			<Toolbar>
-				<Button type="Back" press="onPress" />
 				<ToolbarSpacer/>
 				<Title text="Veranstaltungsbrowser" level="H2"/>
 				<ToolbarSpacer/>
@@ -212,12 +211,12 @@
 									</t:template>
 								</t:Column>
 
-								<t:Column tooltip="Action">
+								<t:Column tooltip="Neues Event mit diesem Typ anlegen">
 									<t:label>
-										<Label text="Action " />
+										<Label text="Neues Event " />
 									</t:label>
 									<t:template>
-										<Button text="Add child" press="addNode" />
+										<Button text="Neues Event anlegen" press="addNode" />
 									</t:template>
 								</t:Column>
 							</t:columns>

@@ -21,7 +21,21 @@ sap.ui.controller("lvm.Editorscreen", {
 	 * Wird beim Klicken des Buttons "Speichern" ausgef�hrt.
 	 */
 	handleSaveData: function() {
-		alert("Gesichert!");
+		if (!this._dialog) {
+			this._dialog = sap.ui.xmlfragment("lvm.BusyDialog", this);
+			this.getView().addDependent(this._dialog);
+		}
+
+		// open dialog
+		jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._dialog);
+		this._dialog.open();
+
+		// simulate end of operation
+		_timeout = jQuery.sap.delayedCall(10000, this, function () {
+			this._dialog.close();
+			alert("Test");
+		});
+// ToDO: erst Danach speichern -> sonst abbruch.
 	},
 	
 	/**
@@ -70,66 +84,6 @@ sap.ui.controller("lvm.Editorscreen", {
         app.back("page1");
 	},
 	
-//	handleEditPress : function () {
-//		 
-//		//Clone the data
-//		this._oSupplier = jQuery.extend({}, this.getView().getModel().getData().SupplierCollection[0]);
-//		this._toggleButtonsAndView(true);
-//
-//	},
-//	handleCancelPress : function () {
-//		 
-//		//Restore the data
-//		var oModel = this.getView().getModel();
-//		var oData = oModel.getData();
-//
-//		oData.SupplierCollection[0] = this._oSupplier;
-//
-//		oModel.setData(oData);
-//		this._toggleButtonsAndView(false);
-//
-//	},
-//
-//	handleSavePress : function () {
-//
-//		this._toggleButtonsAndView(false);
-//
-//	},
-//
-//	_formFragments: {},
-//
-//	_toggleButtonsAndView : function (bEdit) {
-//		var oView = this.getView();
-//
-//		// Show the appropriate action buttons
-//		oView.byId("edit").setVisible(!bEdit);
-//		oView.byId("save").setVisible(bEdit);
-//		oView.byId("cancel").setVisible(bEdit);
-//
-//		// Set the right form type
-//		this._showFormFragment(bEdit ? "Change" : "Display");
-//	},
-//
-//	_getFormFragment: function (sFragmentName) {
-//		var oFormFragment = this._formFragments[sFragmentName];
-//
-//		if (oFormFragment) {
-//			return oFormFragment;
-//		}
-//
-//		oFormFragment = sap.ui.xmlfragment(this.getView().getId(), "sap.ui.layout.sample.SimpleForm354." + sFragmentName);
-//
-//		return this._formFragments[sFragmentName] = oFormFragment;
-//	},
-//
-//	_showFormFragment : function (sFragmentName) {
-//		var oPage = this.getView().byId("page");
-//
-//		oPage.removeAllContent();
-//		oPage.insertContent(this._getFormFragment(sFragmentName));
-//	}
-//
-//
-//	
+
 
 });

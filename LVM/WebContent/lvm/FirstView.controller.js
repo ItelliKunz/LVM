@@ -6,6 +6,7 @@ sap.ui.controller("lvm.FirstView", {
 * @memberOf lvm.FirstView
 */
 	onInit: function() {
+//		var oModel = new sap.ui.model.odata.ODataModel("/sap/hana/democontent/epm/services/salesOrders.xsodata/", true);
 		var oModel = new sap.ui.model.json.JSONModel();
         oModel.setData({
             data : [
@@ -78,7 +79,9 @@ sap.ui.controller("lvm.FirstView", {
                 }
             ]
         });
+//        sap.ui.getCore().setModel(oModel);
         this.getView().setModel(oModel);
+//        this.getView("Editorscreen").setModel(oModel);
 	},
 
 /**
@@ -129,23 +132,18 @@ sap.ui.controller("lvm.FirstView", {
     /**
      * Absprung aus Tabelle in den Editorscreen
      */
-    onJumpToEditorScreen: function() {
+    onJumpToEditorScreen: function(oEvent) {
+//    	var oBindingContext = onInit.getSource().getBindingContext("data"); // specify which model you want to use
+//    	app.setBindingContext(oBindingContext, "data");
     	
-//    	 this.getView().byId("Editor123");  
-//    	this.getApp().byID("idEditorScreen1");
-//    	this._showObject(oEvent.getSource());
-//    	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-//		oRouter.navTo("Editorscreen");
+//    	var data = this.getView().getJSON().getData();
 		var app = sap.ui.getCore().byId("AppLVM");
-        app.to("page2");
+        app.to("pageEditor");
     },
     
 	onPress: function(oEvent) {
 		// The source is the list item that got pressed
-//		this._showObject(oEvent.getSource());
-//		this.getOwnerComponent().getTargets().display("Editorscreen");
-		var app = sap.ui.getCore().byId("myApp");
-        app.to("Editorscreen");
+
 	},
 	
 	/**

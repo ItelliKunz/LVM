@@ -1,0 +1,9 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<BusyDialog
+		title="Versuche zu Speichern"
+		text="...speichere die Lehrveranstaltung..."
+		showCancelButton="true"
+		close="onDialogClosed"/>
+</core:FragmentDefinition>

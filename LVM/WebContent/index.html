@@ -16,7 +16,7 @@
  				sap.ui.localResources("lvm");
 
 				var page = sap.ui.view({id:"page1", viewName:"lvm.FirstView", type:sap.ui.core.mvc.ViewType.XML});
-				var pageEditor = sap.ui.view({id:"page2", viewName:"lvm.Editorscreen", type:sap.ui.core.mvc.ViewType.XML});
+				var pageEditor = sap.ui.view({id:"pageEditor", viewName:"lvm.Editorscreen", type:sap.ui.core.mvc.ViewType.XML});
 				var app = new sap.m.App( "AppLVM", {initialPage:"page1"});
 				
 				app.addPage(page).addPage(pageEditor);
