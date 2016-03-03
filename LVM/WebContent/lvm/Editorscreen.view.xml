@@ -9,10 +9,11 @@
 	xmlns:u="sap.ui.unified"
 	xmlns:t="sap.ui.table"
 	xmlns:html="http://www.w3.org/1999/xhtml"	
-	controllerName="lvm.Editorscreen">
+	controllerName="lvm.Editorscreen"
+	id="Editor123">
 
-	<Page title="Editorscreen">
-	<Button text="Zurück" type="Back"/>
+	<Page id="Editorscreen" title="Editorscreen">
+		<Button text="Zurück" type="Back"/>
 		<content>
 
 			<f:SimpleForm id="SimpleFormChange354"

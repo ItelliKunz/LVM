@@ -11,75 +11,71 @@ sap.ui.controller("lvm.FirstView", {
             data : [
                 { 
                     name  : "node1", 
-                    description : "Lorem ipsum dolor sit amet",
-                    data : [
-                        { 
-                            name : "node1.1", 
-                            description : "Cras pretium nisl ac ex congue posuere"
-                        },
-                        { 
-                            name : "node1.2", 
-                            description : "Consectetur adipiscing elit",
-                            data: [
-                                { 
-                                    name : "node1.2.1",
-                                    description : "Maecenas accumsan ipsum diam"
-                                }
-                           ]
-                        },
-                        { 
-                            name : "node1.3", 
-                            description : "Sed tristique diam non imperdiet commodo"
-                        },
-                        { 
-                            name : "node1.4", 
-                            description : "Consectetur adipiscing elit",
-                            data: [
-                                { 
-                                    name : "node1.4.1",
-                                    description : "Maecenas accumsan ipsum diam",
-                                    data: [
-                                        { 
-                                            name : "node1.4.1.1",
-                                            description : "Maecenas accumsan ipsum diam",
-                                            data: [
-                                                { 
-                                                    name : "node1.4.1.1.1",
-                                                    description : "Maecenas accumsan ipsum diam",
-                                                    data: [
-                                                        { 
-                                                            name : "node1.4.1.1.1.1",
-                                                            description : "Maecenas accumsan ipsum diam"
-                                                        }
-                                                   ]
-                                                }
-                                           ]
-                                        }
-                                   ]
-                                }
-                           ]
-                        },
-                        { 
-                            name : "node1.5", 
-                            description : "Sed tristique diam non imperdiet commodo"
-                        },
-                        { 
-                            name : "node1.6", 
-                            description : "Consectetur adipiscing elit",
-                            data: [
-                                { 
-                                    name : "node1.6.1",
-                                    description : "Maecenas accumsan ipsum diam"
-                                }
-                           ]
-                        },
-                        { 
-                            name : "node1.7", 
-                            description : "Sed tristique diam non imperdiet commodo"
-                        },
-
-                    ]
+                    planVariante: "01",
+                    objectType : "SM",
+                    objectID : "50000121",
+                    beginDate : "20160101",
+                    endDate : "20160701",
+                    iState : "1",
+                    histo : "",
+                    shortName : "M400000",
+                    description : "Prakitkum der Physik",
+                    realo: "50000121",
+                    akademischesJahr: "2016",
+                    akademischePeriode: "SoSe2016",
+                    
                 },
+                
+                { 
+                    name  : "node1.1", 
+                    planVariante: "01",
+                    objectType : "SM",
+                    objectID : "50000121",
+                    beginDate : "20160101",
+                    endDate : "20160701",
+                    iState : "1",
+                    histo : "",
+                    shortName : "M400000",
+                    description : "Prakitkum der Physik",
+                    realo: "50000121",
+                    akademischesJahr: "2016",
+                    akademischePeriode: "SoSe2016",
+                    
+                },
+                
+                { 
+                    name  : "node1.1.1", 
+                    planVariante: "01",
+                    objectType : "SM",
+                    objectID : "50000121",
+                    beginDate : "2016.01.01",
+                    endDate : "01.07.2016",
+                    iState : "1",
+                    histo : "",
+                    shortName : "M400000",
+                    description : "Prakitkum der Physik",
+                    realo: "50000121",
+                    akademischesJahr: "2016",
+                    akademischePeriode: "SoSe2016",
+                    
+                },
+                
+                { 
+                    name  : "node1.2", 
+                    planVariante: "01",
+                    objectType : "SM",
+                    objectID : "50000121",
+                    beginDate : "20160101",
+                    endDate : "20160701",
+                    iState : "1",
+                    histo : "",
+                    shortName : "M400000",
+                    description : "Prakitkum der Physik",
+                    realo: "50000121",
+                    akademischesJahr: "2015",
+                    akademischePeriode: "SoSe2015",
+                    
+                }
             ]
         });
         this.getView().setModel(oModel);
@@ -129,6 +125,54 @@ sap.ui.controller("lvm.FirstView", {
 
         this._doExpandAll();
     },
+    
+    /**
+     * Absprung aus Tabelle in den Editorscreen
+     */
+    onJumpToEditorScreen: function() {
+    	
+//    	 this.getView().byId("Editor123");  
+//    	this.getApp().byID("idEditorScreen1");
+//    	this._showObject(oEvent.getSource());
+    	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+		oRouter.navTo("Editorscreen");
+    },
+    
+	onPress: function(oEvent) {
+		// The source is the list item that got pressed
+		this._showObject(oEvent.getSource());
+	},
+	
+	/**
+	 * Shows the selected item on the object page
+	 * On phones a additional history entry is created
+	 * @param {sap.m.ObjectListItem} oItem selected Item
+	 * @private
+	 */
+	_showObject: function(oItem) {
+		this.getRouter().navTo("object", {
+			objectId: oItem.getBindingContext().getProperty("ProductID")
+		});
+	},
+    
+    
+	/**
+	 * Convenience method for accessing the router.
+	 * @public
+	 * @returns {sap.ui.core.routing.Router} the router for this component
+	 */
+	getRouter: function() {
+		return sap.ui.core.UIComponent.getRouterFor(this);
+	},
+
+    
+    
+    
+    
+    
+    
+    
+    
 
     _doExpandAll : function() {
         var oTTbl = this.getView().byId("tbl");
@@ -139,9 +183,26 @@ sap.ui.controller("lvm.FirstView", {
     
     startSearch: function() {
     	
-    	alert("Test");
+    	alert("Suche starten");
     	
-    }
+    },
+    
+//    onOpenDialog: function (oEvent) {
+//		// instantiate dialog
+//		if (!this._dialog) {
+//			this._dialog = sap.ui.xmlfragment("sap.m.sample.BusyDialog.BusyDialog", this);
+//			this.getView().addDependent(this._dialog);
+//		}
+//
+//		// open dialog
+//		jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._dialog);
+//		this._dialog.open();
+//
+//		// simulate end of operation
+//		_timeout = jQuery.sap.delayedCall(3000, this, function () {
+//			this._dialog.close();
+//		});
+//	}
 	
 	
 });

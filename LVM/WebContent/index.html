@@ -14,14 +14,10 @@
 
 		<script>
  				sap.ui.localResources("lvm");
-/*				var app = new sap.m.App({initialPage:"idLVM_MainView1"});
-				var page = sap.ui.view({id:"idLVM_MainView1", viewName:"lvm.LVM_MainView", type:sap.ui.core.mvc.ViewType.XML});
-				app.addPage(page);
-				app.placeAt("content");*/
-				/*sap.ui.localResources("editor screen");   */
-				var app = new sap.m.App({initialPage:"idEditorscreen1"});
-				var page = sap.ui.view({id:"idEditorscreen1", viewName:"lvm.FirstView", type:sap.ui.core.mvc.ViewType.XML});
-				app.addPage(page);
+				var pageEditor = sap.ui.view({id:"idEditorScreen1", viewName:"lvm.Editorscreen", type:sap.ui.core.mvc.ViewType.XML});
+				var app = new sap.m.App({ id:"idAppLVM", initialPage:"idLVM"});
+				var page = sap.ui.view({id:"idLVM", viewName:"lvm.FirstView", type:sap.ui.core.mvc.ViewType.XML});
+				app.addPage(page).addPage(pageEditor);
 				app.placeAt("content"); 
 				
 				
