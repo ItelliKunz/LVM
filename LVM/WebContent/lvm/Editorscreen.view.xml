@@ -12,8 +12,8 @@
 	controllerName="lvm.Editorscreen"
 	id="Editor123">
 
-	<Page id="Editorscreen" title="Editorscreen">
-		<Button text="Zurück" type="Back"/>
+	<Page id="Editorscreen" title="Editorscreen" showNavButton="true" navButtonType="Back" 
+                             navButtonPress="onBack">
 		<content>
 
 			<f:SimpleForm id="SimpleFormChange354"

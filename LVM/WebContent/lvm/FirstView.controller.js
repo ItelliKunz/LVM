@@ -108,7 +108,7 @@ sap.ui.controller("lvm.FirstView", {
 //	}
 
 	onAfterRendering : function() {
-        this._doExpandAll();
+//        this._doExpandAll();
     },
 
     addNode : function(oEvent) {
@@ -134,13 +134,18 @@ sap.ui.controller("lvm.FirstView", {
 //    	 this.getView().byId("Editor123");  
 //    	this.getApp().byID("idEditorScreen1");
 //    	this._showObject(oEvent.getSource());
-    	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-		oRouter.navTo("Editorscreen");
+//    	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+//		oRouter.navTo("Editorscreen");
+		var app = sap.ui.getCore().byId("AppLVM");
+        app.to("page2");
     },
     
 	onPress: function(oEvent) {
 		// The source is the list item that got pressed
-		this._showObject(oEvent.getSource());
+//		this._showObject(oEvent.getSource());
+//		this.getOwnerComponent().getTargets().display("Editorscreen");
+		var app = sap.ui.getCore().byId("myApp");
+        app.to("Editorscreen");
 	},
 	
 	/**
@@ -164,15 +169,6 @@ sap.ui.controller("lvm.FirstView", {
 	getRouter: function() {
 		return sap.ui.core.UIComponent.getRouterFor(this);
 	},
-
-    
-    
-    
-    
-    
-    
-    
-    
 
     _doExpandAll : function() {
         var oTTbl = this.getView().byId("tbl");

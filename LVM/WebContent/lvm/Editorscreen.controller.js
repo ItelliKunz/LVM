@@ -18,7 +18,7 @@ sap.ui.controller("lvm.Editorscreen", {
 	},
 	
 	/**
-	 * Wird beim Klicken des Buttons "Speichern" ausgeführt.
+	 * Wird beim Klicken des Buttons "Speichern" ausgefï¿½hrt.
 	 */
 	handleSaveData: function() {
 		alert("Gesichert!");
@@ -62,6 +62,12 @@ sap.ui.controller("lvm.Editorscreen", {
 			this._formFragments[sPropertyName].destroy();
 			this._formFragments[sPropertyName] = null;
 		}
+	},
+	
+	onBack: function(){
+//		this.getOwnerComponent().getTargets().display("FirstView");
+		var app = sap.ui.getCore().byId("AppLVM");
+        app.back("page1");
 	},
 	
 //	handleEditPress : function () {
