@@ -7,6 +7,8 @@ sap.ui.controller("lvm.Editorscreen", {
 */
 	onInit: function() {
 		 
+//		var oRouter = this.getRouter();
+//		oRouter.getRoute("Page2").attachMatched(this._onRouteMatched, this);
 		// set explored app's demo model on this sample
 //		var oModel = new JSONModel(jQuery.sap.getModulePath("sap.ui.demo.mock", "/supplier.json"));
 //		this.getView().setModel(oModel);
@@ -18,7 +20,7 @@ sap.ui.controller("lvm.Editorscreen", {
 	},
 	
 	/**
-	 * Wird beim Klicken des Buttons "Speichern" ausgef�hrt.
+	 * Wird beim Klicken des Buttons "Speichern" ausgefï¿½hrt.
 	 */
 	handleSaveData: function() {
 		if (!this._dialog) {
@@ -31,7 +33,7 @@ sap.ui.controller("lvm.Editorscreen", {
 		this._dialog.open();
 
 		// simulate end of operation
-		_timeout = jQuery.sap.delayedCall(10000, this, function () {
+		_timeout = jQuery.sap.delayedCall(3000, this, function () {
 			this._dialog.close();
 			alert("Test");
 		});
@@ -45,6 +47,12 @@ sap.ui.controller("lvm.Editorscreen", {
 		alert("Alles sauber!");
 	},
 
+	
+	onForward: function () {
+		var app = sap.ui.getCore().byId("AppLVM");
+        app.to("pageRoomSearch" );
+	},
+	
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 * (NOT before the first rendering! onInit() is used for that one!).

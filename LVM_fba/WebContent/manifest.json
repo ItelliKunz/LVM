@@ -1,0 +1,119 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "uni-ulm.lvm",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"ach": "CA-UI5-DOC",
+		"dataSources": {
+			"eventsData": {
+				"uri": "/sap/opu/odata/sap/ylvm_test2_srv/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri" : "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_bluecrystal"]
+  	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": "uni-ulm.lvm.view.App",
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": { }
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "uni-ulm.lvm.i18n.i18n"
+				}
+			},
+			"tree": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"": {
+				"dataSource": "eventsData"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "uni-ulm.lvm.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"bypassed": {
+					"target": "notFound"
+				}
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "appHome",
+				"target": "home"
+			},
+			{
+				"pattern": "editorscreen",
+				"name": "editscreen",
+				"target": "editorscreen"
+			}, 
+			{
+				"pattern": "editorscreen/{Objid}",
+				"name": "editscreen",
+				"target": "editorscreen"
+			}, {
+				"pattern": "employees",
+				"name": "employeeList",
+				"target": "employees"
+			}, {
+				"pattern": "employees/{employeeId}",
+				"name": "employee",
+				"target": "employee"
+			}],
+			"targets": {
+				"home": {
+					"viewName": "Home",
+					"viewLevel" : 1
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"transition": "show"
+				},
+				"editorscreen": {
+					"viewPath": "uni-ulm.lvm.view",
+					"viewName": "Editscreen",
+					"viewLevel" : 2
+				},
+				"employees": {
+					"viewPath": "uni-ulm.lvm.view",
+					"viewName": "EmployeeList",
+					"viewLevel" : 2
+				},
+				"employee": {
+					"viewName": "Employee",
+					"viewLevel" : 3
+				}
+			}
+		}
+	}
+}

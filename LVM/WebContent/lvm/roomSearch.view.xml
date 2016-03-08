@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="lvm.roomSearch" xmlns:com="sap.ui.commons"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout">
+
+	<Page id="pageRoomSearch" title="Raumsuche" showNavButton="true"
+		navButtonType="Back" navButtonPress="onBackToEditorScreen">
+		<content>
+			<Label text="Das wird der View für die Raumsuche" />
+			<Button text="Zurück zum Editor" type="Back" press="onBackToEditorScreen" />
+
+			<HBox class="sapUiSmallMarginBottom" width="15%" />
+			<!-- <DatePicker id="Startzeit" description="Anmeldung ab" placeholder="Anmelden 
+				ab 2016-05-01" valueFormat="yyyy-MM-dd" displayFormat="long" change="handleChange" 
+				class="sapUiSmallMarginBottom" /> -->
+
+			<HBox class="sapUiSmallMarginBottom" width="70%">
+				<VBox>
+					<Label text="Datum der LV" />
+					<DatePicker id="Startzeit" description="Anmeldung ab"
+						placeholder="01.01.2016" valueFormat="yyyy-MM-dd" displayFormat="long"
+						change="handleChange" class="sapUiSmallMarginBottom">
+						<layoutData>
+							<FlexItemData growFactor="1" />
+						</layoutData>
+					</DatePicker>
+					<!-- <TimePicker placeholder="Zeit eingeben..."> <layoutData> <FlexItemData 
+						growFactor="1" /> </layoutData> </TimePicker> -->
+					<Label text="Uhrzeit der LV: " />
+					<DateTimeInput type="Time" placeholder="Enter Time ..."
+						class="sapUiSmallMarginBottom" />
+
+				</VBox>
+				<com:HorizontalDivider />
+
+				<VBox>
+					<Label text="Nach Räumen:" />
+					<Input value="{Room}" />
+				</VBox>
+			</HBox>
+
+			<HBox class="sapUiSmallMarginBottom" width="15%" />
+
+
+		</content>
+	</Page>
+</core:View>

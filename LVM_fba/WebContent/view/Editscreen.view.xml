@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:View xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:c="sap.ui.core"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.commons.layout"
+	xmlns:u="sap.ui.unified" xmlns:t="sap.ui.table" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="uni-ulm.lvm.controller.Editscreen" id="Editor123"  xmlns:com="sap.ui.commons">
+
+	<Page id="Editorscreen" title="Editorscreen" showNavButton="true"
+		navButtonType="Back" navButtonPress="onNavBack">
+		<content>
+
+		<layout:MatrixLayout layoutFixed="true"  columns="6" width="50%" widths="20%,15%,15%,20%,15%,15%">
+                            <layout:MatrixLayoutRow> 
+	                            <layout:cells>
+	                                <layout:MatrixLayoutCell hAlign="Center">
+	                                     <Label  text="Akad. Jahr"/>                  
+	                            	</layout:MatrixLayoutCell>
+	                            	<layout:MatrixLayoutCell colSpan="2" hAlign="Left">
+	                                    <Input  value="{Peryr}" />
+	                            	</layout:MatrixLayoutCell>
+	                                <layout:MatrixLayoutCell hAlign="Left">
+	                                    <Label  text="Akad. Periode"/>
+	                                 </layout:MatrixLayoutCell>
+	                                 <layout:MatrixLayoutCell colSpan="2" hAlign="Left">
+	                                    <Input  value="{Perid}" />
+	                            	</layout:MatrixLayoutCell>
+	                             </layout:cells>                 
+                            </layout:MatrixLayoutRow>    
+                             
+                            <layout:MatrixLayoutRow> 
+	                            <layout:cells>
+	                                <layout:MatrixLayoutCell hAlign="Center">
+	                                     <Label  text="Events"/>                 
+	                            	</layout:MatrixLayoutCell>
+	                            	<layout:MatrixLayoutCell colSpan="2" hAlign="Left">
+	                                    <Input  value="{Short}" />
+	                            	</layout:MatrixLayoutCell>
+	                                <layout:MatrixLayoutCell colSpan="3" hAlign="Left">
+	                                    <Input  value="{Stext}"/>
+	                                 </layout:MatrixLayoutCell>
+	                             </layout:cells>                 
+                            </layout:MatrixLayoutRow> 
+                            
+                            <layout:MatrixLayoutRow> 
+	                            <layout:cells>
+	                                <layout:MatrixLayoutCell  hAlign="Center">
+	                                     <Label  text="Campus"/>                
+	                            	</layout:MatrixLayoutCell>
+	                            	<layout:MatrixLayoutCell colSpan="3" hAlign="Left">
+	                                    <Input  value="{Campusshort}" />
+	                            	</layout:MatrixLayoutCell>
+	                                <layout:MatrixLayoutCell colSpan="2" hAlign="Left">
+	                                     <Input  value="{Campustxt}"/>
+	                                 </layout:MatrixLayoutCell>
+	                             </layout:cells>                 
+                            </layout:MatrixLayoutRow> 
+
+							<layout:MatrixLayoutRow> 
+	                            <layout:cells>
+	                                <layout:MatrixLayoutCell hAlign="Center">
+	                                     <Label  text="Minimale Kapazität"/>                
+	                            	</layout:MatrixLayoutCell>
+	                            	<layout:MatrixLayoutCell hAlign="Left">
+	                                    <Input  value="{KapZ1}" width="70%"/>
+	                            	</layout:MatrixLayoutCell>
+	                                <layout:MatrixLayoutCell hAlign="Left">
+	                                     <Label  text="opt. Kap." width="70%"/>
+	                                 </layout:MatrixLayoutCell>
+	                                 <layout:MatrixLayoutCell hAlign="Left">
+	                                    <Input  value="{KapZ2}" width="70%"/>
+	                                 </layout:MatrixLayoutCell>
+	                                 <layout:MatrixLayoutCell hAlign="Left">
+	                                     <Label  text="max. Kap." width="70%"/>
+	                                  </layout:MatrixLayoutCell>
+	                                 <layout:MatrixLayoutCell hAlign="Left">
+	                                     <Input  value="{KapZ3}" width="70%"/>
+	                                 </layout:MatrixLayoutCell>
+	                             </layout:cells>                 
+                            </layout:MatrixLayoutRow>     
+
+                            <layout:MatrixLayoutRow> 
+	                            <layout:cells>
+	                                <layout:MatrixLayoutCell  hAlign="Center">
+	                                     <Label  text="Lehrtätigkeitsaufwand"/>                
+	                            	</layout:MatrixLayoutCell>
+	                            	<layout:MatrixLayoutCell colSpan="2" hAlign="Left">
+	                                    <Input  value="{Contacthours}" />
+	                            	</layout:MatrixLayoutCell>
+	                                <layout:MatrixLayoutCell colSpan="2" hAlign="Left">
+	                                     <Input  value="{ContacthoursUnit}"/>
+	                                 </layout:MatrixLayoutCell>
+	                             </layout:cells>                 
+                            </layout:MatrixLayoutRow> 
+                            
+                             <layout:MatrixLayoutRow> 
+	                            <layout:cells>
+	                                <layout:MatrixLayoutCell  hAlign="Center">
+	                                     <Label  text="Planstatus"/>                
+	                            	</layout:MatrixLayoutCell>
+	                            	<layout:MatrixLayoutCell colSpan="2" hAlign="Left">
+	                                    <Input  value="EVPROCSTAT" />
+	                            	</layout:MatrixLayoutCell>
+	                                <layout:MatrixLayoutCell  hAlign="Left">
+	                                     <Label  text="Plansnotiz"/>                
+	                            	</layout:MatrixLayoutCell>
+	                                <layout:MatrixLayoutCell colSpan="2" hAlign="Left">
+	                                     <Input  value="{Planningnote}"/>
+	                                 </layout:MatrixLayoutCell>
+	                             </layout:cells>                 
+                            </layout:MatrixLayoutRow> 
+                            
+                            
+                              <layout:MatrixLayoutRow> 
+	                            <layout:cells>
+	                                <layout:MatrixLayoutCell  hAlign="Center">
+	                                     <Label  text="Anmeldeverfahren"/>                
+	                            	</layout:MatrixLayoutCell>
+	                            	<layout:MatrixLayoutCell colSpan="3" hAlign="Left">
+	                                    <Input  value="{Anmeldeverfahren}" />
+	                            	</layout:MatrixLayoutCell>
+	                                <layout:MatrixLayoutCell colSpan="2" hAlign="Left">
+	                                     <CheckBox text="Präferenzverfahren" checked="{Präferenzanmeldung}" />
+	                                 </layout:MatrixLayoutCell>
+	                             </layout:cells>                 
+                            </layout:MatrixLayoutRow> 
+
+         </layout:MatrixLayout>
+
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button text="Speichern" type="Accept" press="handleSaveData" >	</Button>
+				<Button text="Verwerfen" type="Reject" press="handleResetChanges" />
+			</Toolbar>
+
+
+		</content>
+	</Page>
+</core:View>

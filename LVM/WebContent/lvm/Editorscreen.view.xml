@@ -2,10 +2,11 @@
 <core:View xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:c="sap.ui.core"
 	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc"
 	xmlns:u="sap.ui.unified" xmlns:t="sap.ui.table" xmlns:html="http://www.w3.org/1999/xhtml"
-	controllerName="lvm.Editorscreen" id="Editor123">
+	controllerName="lvm.Editorscreen" id="Editor123"  xmlns:com="sap.ui.commons">
 
 	<Page id="Editorscreen" title="Editorscreen" showNavButton="true"
 		navButtonType="Back" navButtonPress="onBack">
+		<Button  visible="False"  text="TmpButtonNextPage"  press="onForward" ></Button>
 		<content>
 			<f:SimpleForm id="SimpleFormChange354" minWidth="1024"
 				maxContainerCols="3" editable="true" layout="ResponsiveGridLayout"
@@ -53,6 +54,23 @@
 						</layoutData>
 					</CheckBox>
 				</VBox>
+				
+				<Label text="Fristen" />
+				<Input value="{Fristen}" />
+
+<!-- 				 <com:HorizontalDivider /> -->
+				<Label text="Anmeldebeginn" />
+				<DatePicker id="AnmelBeginn" description="Anmeldung ab"
+                    placeholder="Anmelden ab 2016-05-01" valueFormat="yyyy-MM-dd"
+                    displayFormat="long" change="handleChange" class="sapUiSmallMarginBottom" />
+				<Label text="AnmeldeSchluss" />
+				<DatePicker id="AnmeldeSchluss" description="Anmelden bis"
+                    placeholder="Anmelden bis: 2016-05-15" valueFormat="yyyy-MM-dd"
+                    displayFormat="long" change="handleChange" class="sapUiSmallMarginBottom" />
+                    <Label text="ABmeldeSchluss" />
+				<DatePicker id="ABmeldeSchluss" description="Abmelden bis"
+                    placeholder="ABmelden bis: 2016-05-15" valueFormat="yyyy-MM-dd"
+                    displayFormat="long" change="handleChange" class="sapUiSmallMarginBottom" />
 				<VBox>
 					<Select text="Anmeldeberechtigung" placeholder="Anmeldeberechtigung" width="100%">
 						<items>
@@ -63,13 +81,10 @@
 						</items>
 					</Select>
 				</VBox>
-				<Label text="Fristen" />
-				<Input value="{Fristen}" />
-
 			</f:SimpleForm>
 
-			<t:Table rows="{/ProductCollection}" title="Events"
-				selectionMode="MultiToggle" visibleRowCount="7" visible="Disabled">
+			<t:Table rows="{/ProductCollection}" title="Events" visible="Disabled"
+				selectionMode="MultiToggle" visibleRowCount="7" >
 				<t:columns>
 					<t:Column width="11rem">
 						<Label text="Name" />

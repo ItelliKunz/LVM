@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edmx:Edmx xmlns:sap="http://www.sap.com/Protocols/SAPData" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+<edmx:DataServices m:DataServiceVersion="2.0">
+<Schema xml:lang="de" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" sap:schema-version="1" Namespace="YLVM_TEST2_SRV">
+<EntityType sap:content-version="1" Name="Events">
+<Key>
+<PropertyRef Name="Objid"/>
+</Key>
+<Property Name="Otype" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Objekttyp" MaxLength="2" Nullable="false" Type="Edm.String"/>
+<Property Name="Objid" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="ObjektId" MaxLength="8" Nullable="false" Type="Edm.String"/>
+<Property Name="Short" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Objektkürzel" MaxLength="12" Nullable="false" Type="Edm.String"/>
+<Property Name="Stext" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Bezeichnung" MaxLength="40" Nullable="false" Type="Edm.String"/>
+<Property Name="Offerpattern" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Angebotsmuster" MaxLength="4" Nullable="false" Type="Edm.String"/>
+<Property Name="Potype" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Objekttyp" MaxLength="2" Nullable="false" Type="Edm.String"/>
+<Property Name="Peryr" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Akad. Jahr" MaxLength="4" Nullable="false" Type="Edm.String"/>
+<Property Name="Perid" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Akad. Periode" MaxLength="3" Nullable="false" Type="Edm.String"/>
+<Property Name="Parentid" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="ObjektId" MaxLength="8" Nullable="false" Type="Edm.String"/>
+<Property Name="Begindat" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Begindat" Type="Edm.DateTime" Precision="0"/>
+<Property Name="Enddat" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Enddat" Type="Edm.DateTime" Precision="0"/>
+</EntityType>
+-<EntityContainer Name="YLVM_TEST2_SRV_Entities" sap:supported-formats="atom json xlsx" m:IsDefaultEntityContainer="true">
+<EntitySet sap:content-version="1" Name="EventsSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="YLVM_TEST2_SRV.Events"/>
+</EntityContainer>
+<atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="http://sapd04.verwaltung.uni-ulm.de:8000/sap/opu/odata/sap/YLVM_TEST2_SRV/$metadata" rel="self"/>
+<atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="http://sapd04.verwaltung.uni-ulm.de:8000/sap/opu/odata/sap/YLVM_TEST2_SRV/$metadata" rel="latest-version"/>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>
